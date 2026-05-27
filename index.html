@@ -3,86 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>☠ [LIVE] SLAVE ARCHIVE DATABASE ☠</title>
+    <title>🔞 [ADULT ONLY] AMTWAEJI ARCHIVE 🔞</title>
     <style>
-        /* 검은색 배경과 핫핑크, 레드의 자극적인 불법 사이트 감성 */
+        /* 극강의 검정, 레드, 핫핑크 조합 - 불법 성인 사이트 감성 */
         body {
             background-color: #000000;
             color: #ff0055;
-            font-family: 'Malgun Gothic', sans-serif;
+            font-family: 'Impact', 'Malgun Gothic', sans-serif;
             padding: 10px;
             text-align: center;
             margin: 0;
         }
         
-        /* 깜빡이는 경고성 상단 배너 */
-        .neon-banner {
-            background: #111;
+        /* 눈을 테러하는 초고속 깜빡이 경고 배너 */
+        .illegal-banner {
+            background: #200000;
             color: #ff0000;
-            padding: 12px;
+            padding: 10px;
             font-weight: bold;
-            border: 3px solid #ff0055;
+            border: 3px dashed #ff0055;
             margin-bottom: 20px;
-            text-shadow: 0 0 5px #ff0000;
-            animation: blinker 0.4s infinite alternate;
+            text-shadow: 0 0 8px #ff0000;
+            font-size: 14px;
+            animation: flash 0.3s infinite alternate;
         }
-        @keyframes blinker {
-            0% { border-color: #ff0055; color: #ff0000; }
-            100% { border-color: #ff0000; color: #ff00ff; }
+        @keyframes flash {
+            0% { border-color: #ff0055; background-color: #100000; }
+            100% { border-color: #ff3333; background-color: #300000; }
         }
 
         h1 {
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0055;
+            font-size: 28px;
+            margin-bottom: 0;
+        }
+
+        .warning-text {
+            color: #ff5555;
+            font-size: 11px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        /* 섹션 구분 상자 */
+        .section-box {
+            background: #0a0505;
+            border: 2px solid #ff0033;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+        }
+
+        .section-title {
+            font-size: 18px;
             color: #ff0055;
-            text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0000;
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #ff3333;
-            font-size: 12px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        /* 컨트롤 버튼 구역 */
-        .control-panel {
+            text-shadow: 0 0 5px #ff0055;
+            margin-top: 0;
             margin-bottom: 15px;
         }
-        .btn {
-            background: #111;
-            border: 2px solid #ff0055;
-            color: #ff0055;
-            padding: 8px 15px;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 0 5px;
-            border-radius: 4px;
-        }
-        .btn:hover {
-            background: #ff0055;
-            color: #000;
-            box-shadow: 0 0 10px #ff0055;
-        }
-        .btn-save {
-            background: #ff0000;
-            color: #fff;
-            border: 2px solid #ff0055;
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin-top: 20px;
-            text-shadow: 0 0 5px #000;
-        }
 
-        /* 메인 데이터 테이블 */
+        /* 공통 테이블 스타일 */
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #0a0a0a;
+            background-color: #000000;
             color: #ffffff;
-            margin-top: 10px;
-            font-size: 12px;
+            font-size: 11px;
         }
         th, td {
             border: 2px solid #ff0055;
@@ -91,15 +79,15 @@
             vertical-align: middle;
         }
         th {
-            background-color: #1a000a;
+            background-color: #2a000d;
             color: #ff3333;
             font-weight: bold;
         }
 
         /* 이미지 업로드 박스 */
         .img-container {
-            width: 55px;
-            height: 70px;
+            width: 60px;
+            height: 75px;
             background: #111;
             border: 1px dashed #ff0000;
             display: flex;
@@ -122,80 +110,199 @@
             cursor: pointer;
         }
 
-        /* 입력 폼 스타일 */
-        input[type="text"], input[type="number"], select {
+        /* 입력창 디자인 */
+        input[type="text"], input[type="number"] {
             width: 95%;
-            padding: 5px;
-            background: #000;
-            border: 1px solid #ff0000;
+            padding: 6px;
+            background: #111;
+            border: 1px solid #ff0033;
             color: #fff;
             text-align: center;
             box-sizing: border-box;
+            font-size: 11px;
         }
-        input:focus, select:focus {
-            border-color: #ff0055;
+        input:focus {
+            border-color: #ff00ff;
+            box-shadow: 0 0 5px #ff00ff;
             outline: none;
         }
 
-        .btn-del {
-            background: #300;
-            border: 1px solid #ff0000;
-            color: #ff3333;
-            padding: 3px 8px;
-            cursor: pointer;
+        /* 🚨 아이폰 크롬 동그라미 버그 완전 차단 select 스타일 */
+        select {
+            width: 95%;
+            padding: 6px;
+            background-color: #ffffff !important; /* 배경 흰색 강제 */
+            color: #000000 !important;            /* 글자 검은색 강제 */
+            border: 2px solid #ff0055;
+            text-align: center;
+            box-sizing: border-box;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+            -webkit-appearance: none !important; /* 아이폰 기본 동그라미 제거 */
+            appearance: none !important;
+            border-radius: 0px !important;        /* 둥근 테두리 제거 */
+            min-width: 55px;
         }
-        .btn-del:hover {
+
+        /* 버튼 디자인 */
+        .btn {
+            background: #111;
+            border: 2px solid #ff0055;
+            color: #ff0055;
+            padding: 8px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background: #ff0055;
+            color: #000;
+        }
+        .btn-save {
             background: #ff0000;
             color: #fff;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            margin-top: 15px;
+            text-shadow: 0 0 5px #000;
+            font-weight: bold;
+            border: 2px dashed #ffffff;
+        }
+        .btn-del {
+            background: #400000;
+            border: 1px solid #ff0000;
+            color: #ff3333;
+            padding: 3px 6px;
+            cursor: pointer;
+            font-size: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="neon-banner">
-        ⚠️ WARNING: UNAUTHORIZED ACCESS PROHIBITED ⚠️<br>
-        [접속인가 완료] 암컷 노예 프로필 시스템 v4.82
+    <div class="illegal-banner">
+        🚨 WARNING: DEEP WEB ADULT SERVER CONNECTED 🚨 <br>
+        실시간 IP 추적 우회 중... 불법 데이터 무단 유출 시 형사 처벌!
     </div>
 
-    <h1>☠ FEMALE SLAVE DATABASE ☠</h1>
-    <div class="subtitle">PRIVATE DEEP ARCHIVE SYSTEM</div>
+    <h1>🔞 ADULT SLAVE ARCHIVE 🔞</h1>
+    <div class="warning-text">CONFIDENTIAL DATABASE // ACCESS GRANTED</div>
 
-    <div class="control-panel">
-        <button class="btn" onclick="addNewRow()">＋ 타겟 추가</button>
-    </div>
-
-    <table>
-        <thead>
+    <div class="section-box">
+        <div class="section-title">🔒 MASTER OWNER PROFILE (내 정보)</div>
+        <table style="font-size: 12px;">
             <tr>
-                <th>사진 1</th>
-                <th>사진 2</th>
-                <th>이름</th>
-                <th>나이</th>
-                <th>꼴림도</th>
-                <th>관리</th>
+                <th width="25%">항목</th>
+                <th width="75%">비밀 데이터 입력</th>
             </tr>
-        </thead>
-        <tbody id="archiveBody">
-            </tbody>
-    </table>
+            <tr>
+                <td>마스터 사진</td>
+                <td>
+                    <div class="img-container" id="box_master_img">
+                        <span style="color:#ff0055">+</span>
+                        <input type="file" class="file-upload" onchange="processImage(this, 'master_img')" accept="image/*">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>이름 / 나이</td>
+                <td>
+                    <input type="text" id="m_name" style="width:45%;" placeholder="진짜 이름">
+                    <input type="number" id="m_age" style="width:45%;" placeholder="진짜 나이">
+                </td>
+            </tr>
+            <tr>
+                <td>주민등록번호</td>
+                <td><input type="text" id="m_rrn" placeholder="000000-0000000 (그대로 표시됨)"></td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="text" id="m_phone" placeholder="010-XXXX-XXXX"></td>
+            </tr>
+            <tr>
+                <td>주소 (아파트 동/호수)</td>
+                <td>
+                    <input type="text" id="m_addr" style="width:50%;" placeholder="시/구/동 주소">
+                    <input type="text" id="m_dong" style="width:20%;" placeholder="동">
+                    <input type="text" id="m_ho" style="width:20%;" placeholder="호">
+                </td>
+            </tr>
+            <tr>
+                <td>집 비밀번호</td>
+                <td><input type="text" id="m_pw" placeholder="진짜 도어락 비밀번호"></td>
+            </tr>
+            <tr>
+                <td>신체 스펙 (키/몸무게)</td>
+                <td>
+                    <input type="number" id="m_height" style="width:45%;" placeholder="cm">
+                    <input type="number" id="m_weight" style="width:45%;" placeholder="kg">
+                </td>
+            </tr>
+            <tr>
+                <td>사이즈 / 꼴림도</td>
+                <td>
+                    <input type="text" id="m_size" style="width:45%;" placeholder="자지 사이즈(cm)">
+                    <select id="m_rank" style="width:45%;">
+                        <option value="A+">A+</option><option value="A">A</option><option value="A-">A-</option>
+                        <option value="B+">B+</option><option value="B">B</option><option value="B-">B-</option>
+                        <option value="C+">C+</option><option value="C">C</option><option value="C-">C-</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
 
-    <button class="btn btn-save" onclick="saveArchiveData()">⚡ 전용 스토리지에 데이터 동기화 (SAVE) ⚡</button>
+    <div class="section-box">
+        <div class="section-title">지정 타겟 리스트 (TARGET SLAVE LIST)</div>
+        <div style="margin-bottom: 15px; text-align: left;">
+            <button class="btn" onclick="addNewRow()">＋ 타겟 추가</button>
+        </div>
 
-    <div class="neon-banner" style="margin-top: 25px; animation-duration: 0.2s;">
-        🔥 [AD] 실시간 시크릿 옥션 진행 중 - 입장하기 🔥
+        <table>
+            <thead>
+                <tr>
+                    <th width="15%">사진 1</th>
+                    <th width="15%">사진 2</th>
+                    <th width="25%">이름</th>
+                    <th width="15%">나이</th>
+                    <th width="15%">꼴림도</th>
+                    <th width="15%">관리</th>
+                </tr>
+            </thead>
+            <tbody id="archiveBody">
+                </tbody>
+        </table>
+    </div>
+
+    <button class="btn btn-save" onclick="saveAllDatabaseData()">⚡ 전체 시크릿 데이터 폰 메모리에 동기화 (SAVE) ⚡</button>
+
+    <div class="illegal-banner" style="margin-top: 25px; animation-duration: 0.15s;">
+        🔥 [AD] 국내 최저가 성인용품 / 암컷 기분 내기용 핑크 끈팬티 특별 기획전 입장 🔥
     </div>
 
     <script>
-        // 고유 매칭을 위한 카운터 변수
         let rowCounter = 0;
 
-        // 페이지 로드 시 기존 데이터를 불러옴
         window.onload = function() {
+            // 1. 마스터 정보 복원
+            const fields = ['name', 'age', 'rrn', 'phone', 'addr', 'dong', 'ho', 'pw', 'height', 'weight', 'size', 'rank'];
+            fields.forEach(f => {
+                const val = localStorage.getItem(`master_${f}`);
+                if (val) document.getElementById(`m_${f}`).value = val;
+            });
+            const masterImg = localStorage.getItem('master_img');
+            if (masterImg) {
+                document.getElementById('box_master_img').innerHTML = `<img src="${masterImg}"><input type="file" class="file-upload" onchange="processImage(this, 'master_img')" accept="image/*">`;
+            }
+
+            // 2. 타겟 리스트 복원
             const savedState = localStorage.getItem('slave_archive_state');
             if (savedState) {
                 const rowIds = JSON.parse(savedState);
                 if (rowIds.length === 0) {
-                    addNewRow(); // 저장된 데이터가 없으면 기본 1행 생성
+                    addNewRow();
                 } else {
                     rowIds.forEach(id => {
                         createRowElement(id);
@@ -203,15 +310,13 @@
                     });
                 }
             } else {
-                addNewRow(); // 최초 접속 시 기본 1행 생성
+                addNewRow();
             }
         };
 
-        // 새로운 행 구조를 생성하는 핵심 함수
         function createRowElement(id) {
             const tbody = document.getElementById('archiveBody');
             
-            // 기존 로컬 스토리지 데이터 로드 (없으면 공백)
             const savedName = localStorage.getItem(`slave_name_${id}`) || '';
             const savedAge = localStorage.getItem(`slave_age_${id}`) || '';
             const savedRank = localStorage.getItem(`slave_rank_${id}`) || 'A+';
@@ -249,21 +354,16 @@
             tbody.appendChild(tr);
         }
 
-        // [행 추가] 버튼 클릭 시
         function addNewRow() {
             createRowElement(rowCounter);
             rowCounter++;
         }
 
-        // [행 삭제] 버튼 클릭 시 해당 DOM 요소 제거
         function deleteRow(id) {
             const tr = document.getElementById(`row_${id}`);
-            if (tr) {
-                tr.remove();
-            }
+            if (tr) tr.remove();
         }
 
-        // 이미지 파일 처리 및 Base64 인코딩 후 스토리지 할당
         function processImage(input, key) {
             const file = input.files[0];
             if (!file) return;
@@ -276,14 +376,19 @@
                     const box = document.getElementById(`box_${key}`);
                     box.innerHTML = `<img src="${base64Data}"><input type="file" class="file-upload" onchange="processImage(this, '${key}')" accept="image/*">`;
                 } catch (error) {
-                    alert('용량이 너무 큽니다. 다른 사진을 선택하거나 고화질 캡처본은 크기를 줄여주세요.');
+                    alert('사진 용량이 너무 커서 폰 메모리가 거부했습니다! 크기를 줄여서 올려주세요.');
                 }
             };
             reader.readAsDataURL(file);
         }
 
-        // 현재 화면의 상태와 모든 텍스트 값들을 일괄 저장
-        function saveArchiveData() {
+        function saveAllDatabaseData() {
+            const fields = ['name', 'age', 'rrn', 'phone', 'addr', 'dong', 'ho', 'pw', 'height', 'weight', 'size', 'rank'];
+            fields.forEach(f => {
+                const val = document.getElementById(`m_${f}`).value;
+                localStorage.setItem(`master_${f}`, val);
+            });
+
             const tbody = document.getElementById('archiveBody');
             const rows = tbody.querySelectorAll('tr');
             const rowIds = [];
@@ -301,9 +406,8 @@
                 localStorage.setItem(`slave_rank_${id}`, rankVal);
             });
 
-            // 현재 존재하는 행들의 ID 리스트를 배열로 저장
             localStorage.setItem('slave_archive_state', JSON.stringify(rowIds));
-            alert('🔒 데이터 무단 유출 방지 및 암호화 저장이 완료되었습니다.');
+            alert('🔞 [경고] 허접 오빠의 은밀한 신상정보가 인터넷에 완벽하게 박제되었습니다!');
         }
     </script>
 </body>

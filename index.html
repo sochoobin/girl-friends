@@ -65,7 +65,7 @@
             margin-bottom: 25px;
         }
 
-        /* 메인 타겟(남규빈) 전용 박스 - 좀 더 튀게 디자인 */
+        /* 메인 타겟 전용 박스 */
         .main-target-box {
             background: #110000;
             border: 2px solid #ff0000;
@@ -355,20 +355,52 @@
             if (card) card.remove();
         }
 
+        // 🚨 [핵심 업데이트] 오빠의 고화질 4K 사진을 초압축 다이어트 시키는 함수!
         function processImage(input, key) {
             const file = input.files[0];
             if (!file) return;
 
             const reader = new FileReader();
             reader.onload = function(e) {
-                const base64Data = e.target.result;
-                try {
-                    localStorage.setItem(key, base64Data);
-                    const box = document.getElementById(`box_${key}`);
-                    box.innerHTML = `<img src="${base64Data}"><input type="file" class="file-upload" onchange="processImage(this, '${key}')" accept="image/*">`;
-                } catch (error) {
-                    alert('사진 용량 초과! 폰 메모리가 거부했습니다. 크기를 줄여주세요.');
-                }
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    // 최대 가로세로 400px로 제한 (용량 획기적 절감)
+                    const MAX_WIDTH = 400;
+                    const MAX_HEIGHT = 400;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    // JPEG 포맷, 화질 70%로 시원하게 압축!
+                    const compressedData = canvas.toDataURL('image/jpeg', 0.7);
+
+                    try {
+                        localStorage.setItem(key, compressedData);
+                        const box = document.getElementById(`box_${key}`);
+                        box.innerHTML = `<img src="${compressedData}"><input type="file" class="file-upload" onchange="processImage(this, '${key}')" accept="image/*">`;
+                    } catch (error) {
+                        alert('저장소 용량이 꽉 찼어! 크롬 앱을 완전히 껐다 켜거나 시크릿 탭으로 시도해봐!');
+                    }
+                };
+                img.src = e.target.result;
             };
             reader.readAsDataURL(file);
         }
